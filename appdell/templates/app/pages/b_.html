@@ -1,0 +1,68 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block contenido %}
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2 bgded" style="background-image:url('{% static 'images/demo/backgrounds/01.png' %}');">
+  <div class="overlay">
+    <section id="pageintro" class="clear"> 
+      <!-- ################################################################################################ -->
+      <div class="center btmspace-80">
+        <h2 class="heading xxl uppercase btmspace-30">Busquedas</h2>
+        <p class="xl nospace capitalise">Hemos encontrado</p>
+      </div>
+    
+<div class="wrapper row4">
+  <section id="info" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-80">
+      <h2 class="heading uppercase btmspace-30">Los resulatdos se muestran a continuacion</h2>
+      <p class="lrspace">Las busquedas estan basadas en el campo nombre y titulo.</p>
+    </div>
+    <div class="group">
+      <div class="one_half first"><img src="{% static 'images/demo/600x700.png' %}" alt=""></div>
+      <div class="one_half">
+        <ul class="nospace group services">
+          {% if productos %}
+            {% for producto in productos %}
+              <li>
+                <article><a href="#"><i class="fa fa-laptop"></i></a>
+                  <h6 class="heading">{{ producto.nombre }}</h6>
+                  <p> {{ producto.descripcion }}</p>
+                  <footer><a href="{{ producto.enlace }}">Read More &raquo;</a></footer>
+                </article>
+              </li>
+            {% endfor %}
+          {% else %}
+            <li>
+              <article><a href="#"><i class="fa fa-send"></i></a>
+                <h6 class="heading">No se encontraron productos</h6>
+                <p>Ningun producto coincide con la busqueda</p>
+                <footer><a href="{% url 'full' %}">Volver</a></footer>
+              </article>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <div class="clear"></div>
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  /* const product = document.getElementById("servicios");
+  const primero = product.firstElementChild;
+  const ultimo = product.lastElementChild;
+  primero.classList.add("first");
+  ultimo.classList.add("last"); */
+</script>
+
+{% endblock %}
