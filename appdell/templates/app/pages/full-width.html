@@ -113,7 +113,7 @@ Full Width
           {% csrf_token %}
           {{ form | crispy }}
           {% comment %} <div class="col-md-12">
-            <input type="text" class="md-1" name="{{ form.nombre.name }}"
+            <input type="text" class="md-1" required name="{{ form.nombre.name }}"
           </div>
           <div class="col-md-4">
             <input type="text" class="md-1" name="{{ form.email.name }}"
