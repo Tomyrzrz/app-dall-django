@@ -1,0 +1,91 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Registro Users
+{% endblock %}
+
+{% block contenido %}
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2 bgded" style="background-image:url('../images/demo/backgrounds/01.png');">
+  <div class="overlay">
+    <div id="breadcrumb" class="clear"> 
+      <!-- ################################################################################################ -->
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Registro</a></li>
+      </ul>
+      <!-- ################################################################################################ -->
+    </div>
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="container clear"> 
+    <div class="content three_quarter" id="comments"> 
+        <h2 class="center">Registro Usuario</h2>
+        <form action="#" method="post">
+          {% csrf_token %}
+          {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <div id="form_errors">
+                {% for key, value in form.errors.items %}
+                  <strong>{{ value }}</strong>
+                {% endfor %}
+              </div>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endif %}
+          <div class="one_third first">
+            <label for="name">Nombre <span>*</span></label>
+            <input type="text" name="{{ form.first_name.name }}" id="name" value="" size="22">
+          </div>
+          <div class="one_third">
+            <label for="last_name">Last Name <span>*</span></label>
+            <input type="text" name="{{ form.last_name.name}}" id="last_name" value="" size="22">
+          </div>
+          <div class="one_third last">
+            <label for="username">Username</label>
+            <input type="text" name="{{ form.username.name }}" id="username" value="" size="22">
+          </div>
+          <div class="one_third first">
+            <label for="email">Email</label>
+            <input type="email" name="{{ form.email.name }}" id="email" value="" size="22">
+          </div>
+          <div class="one_third">
+            <label for="password">Password</label>
+            <input type="password" name="{{ form.password1.name }}" id="password" value="" size="22">
+          </div>
+          <div class="one_third last">
+            <label for="password2">Repeat Password</label>
+            <input type="password" name="{{ form.password2.name }}" id="password2" value="" size="22">
+          </div>
+          <div class="block clear">
+            &nbsp;
+            <input name="submit" type="submit" value="Registrar User">
+            &nbsp;
+            <input name="reset" type="reset" value="Reset Form">
+          </div>
+          <div class="block center">
+            <p>¿Ya tienes una cuenta? Ingresa <a href="{% url 'login' %}"> Aquí </a></p>
+          </div>
+        </form>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% endblock %}
